@@ -11,16 +11,16 @@
 '''
 //#############################################//
 public List<Integer> getRow(int rowIndex){
-    Integer[][] rows = new Integer[2][rowIndex +1];
-    rows[0][0] = 1;
-    rows[1][0] = 1;
-    for(int i = 0;i<=rowIndex;i++) {
-        for(int j = 1; j<i; j++) {
-            rows[i%2][j] = rows[(i+1) % 2][j-1] + rows[(i+1) % 2][j];
+    List<Integer> result = new ArrayList<Integer>();
+    result.add(1);
+    if(rowIndex == 0)
+        return result;
+    for(int i = 1;i<=rowIndex;i++){
+        for(int j = i-1;j>0;j--){
+            result.set(j,result.get(j-1)+result.get(j));
         }
-        rows[i%2][i] = 1;
+        result.add(1);
     }
-    List<Integer> result = Arrays.asList(rows[rowIndex % 2]);
     return result;
 }
 
