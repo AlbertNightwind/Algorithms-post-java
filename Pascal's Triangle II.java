@@ -10,19 +10,17 @@
       1   5   10  10  5   1
 '''
 //#############################################//
-public List<Integer> getRow(int rowIndex){
-    List<Integer> result = new ArrayList<Integer>();
-    result.add(1);
-    if(rowIndex == 0)
-        return result;
-    for(int i = 1;i<=rowIndex;i++){
-        for(int j = i-1;j>0;j--){
-            result.set(j,result.get(j-1)+result.get(j));
-        }
-        result.add(1);
-    }
-    return result;
-}
+public List<Integer> getRow(int rowIndex) {
+		List<Integer> row = null, pre = null;
+		for (int i = 0; i <= rowIndex; i++) {
+			row = new ArrayList<>();
+			for (int j = 0; j <= i; j++) {
+				row.add(j == 0 || i == j ? 1 : pre.get(j) + pre.get(j-1));
+			}
+			pre = row;
+		}
+		return row;
+	}
 
 
 //######################################################################//
