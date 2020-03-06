@@ -1,6 +1,14 @@
 // Given an index k, return the kth row of the Pascal's triangle.
 //input : 3
 //Output:[1,3,3,1]
+'''
+                1
+              1   1
+            1   2   1
+          1   3   3   1
+        1   4   6   4   1
+      1   5   10  10  5   1
+'''
 //#############################################//
 public List<Integer> getRow(int rowIndex){
     Integer[][] rows = new Integer[2][rowIndex +1];
